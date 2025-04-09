@@ -1,0 +1,72 @@
+# tasks = []
+
+# def add_task(task):
+#     tasks.append(task)
+
+# def delete_task(task):
+#        tasks.remove(tasks)
+
+# def show_task():
+#     for elem in tasks:
+#         print(elem)
+
+# def is_done():
+#     pass
+
+# def main():
+#     while True:
+#         print("Mida sa tahad teha?")
+#         print("1 - lisada ülesanne \n2 - kustutada ülesanne \n3 - ülevaadata kõik ülesanded \n4 - muuta seisund (done or not)")
+#         userInput = input("Mida sa tahad? ")
+        
+#         if userInput == "1":
+#             task = input("Sisesta tegevus: ")
+#             add_task(task)
+#         elif userInput == "2":
+#             delete_task()
+#         elif userInput == "3":
+#             show_task()
+#         elif userInput == "4":
+#             is_done()
+#         else:
+#             break
+
+import streamlit as st
+
+st.session_state.tasks = []
+
+st.title("See on ToDoList")
+
+def add_task():
+    task = st.text_input("sisesta uus ülesanne", key="new_task_input")
+    if st.button("lisa"):
+        if task.strip():
+            st.session_state.tasks.append({"text": task, "done": False})
+            st.rerun()
+    else:
+        st.warning("Sisestada mite tühi sõnum")
+
+add_task()
+
+def show_task():
+    if not st.session_state.tasks:
+        st.info("Nimikiri on tühi")
+        return
+
+    for index, task in enumerate(st.session_state.tasks):
+        cols = st.columns([0.08, 0.80, 0.11])
+        with cols[0]:
+            tasks["done"] = st.checkbox("", value=task["done"], key =f"done_{index}")
+        with cols[1]:
+            if task["done"]:
+                text = f"-----{task['text']}-----"
+            else:
+                text = task["text"]
+                st.markdown(text)
+        with cols[2]:
+            if st.button("kustuta", key = f"delete_{index}"):
+                  st.session_state.tasks.pop(index)
+            st.rerun()
+
+
+show_task()
