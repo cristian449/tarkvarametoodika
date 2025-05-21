@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <title>Broneeri Pakett | Lasketiir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Broneeri Laskepakett</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">Avaleht</a></li>
+      <li><a href="relvad.html">Relvad</a></li>
+      <li><a href="paketid.html">Paketid</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="form-container">
+    <h2>Broneerimisvorm</h2>
+    <form action="#" method="post">
+      <label for="nimi">Täisnimi:</label>
+      <input type="text" id="nimi" name="nimi" required>
+
+      <label for="vanus">Vanus:</label>
+      <input type="number" id="vanus" name="vanus" required min="18">
+
+      <label for="email">E-post:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefon">Telefon:</label>
+      <input type="tel" id="telefon" name="telefon" required>
+
+      <label for="pakett">Vali pakett:</label>
+      <select id="pakett" name="pakett" required>
+        <option value="">-- Vali pakett --</option>
+        <option value="algaja">Algaja Pakett - 40€</option>
+        <option value="edasijõudnu">Edasijõudnu Pakett - 75€</option>
+        <option value="ekspert">Ekspert Pakett - 120€</option>
+      </select>
+
+      <label for="lisainfo">Lisainfo või soovid:</label>
+      <textarea id="lisainfo" name="lisainfo" rows="4" placeholder="Näiteks: kindel kuupäev, instruktor vms"></textarea>
+
+      <label for="makse">Pangaandmed:</label>
+      <input type="text" id="makse" name="makse" placeholder="IBAN või makseviide" required>
+
+      <button type="submit" class="btn">Saada broneering</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Lasketiir</p>
+</footer>
+
+</body>
+</html>
